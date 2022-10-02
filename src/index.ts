@@ -1,12 +1,18 @@
 import { CharactersCollection } from "./CharactersCollection";
+import { LinkedList } from "./LinkedList";
 import { NumbersCollection } from "./NumbersCollection";
 import { Sorter } from "./Sorted";
 
-const sorter = new Sorter(new NumbersCollection([4, -3, 110, 2]));
+const sorter = new NumbersCollection([4, -3, 110, 2]);
 sorter.sort();
 
-console.log(sorter.collection.data);
+console.log(sorter.data);
 
-const stringSort = new Sorter(new CharactersCollection("AcB"));
+const stringSort = new CharactersCollection("AcB");
 stringSort.sort();
-console.log(stringSort.collection.data);
+
+const list = new LinkedList();
+list.add(100);
+list.add(-11);
+list.add(-3);
+list.add(7);

@@ -1,9 +1,10 @@
-import { SorterCollection } from "./Sorted";
+import { Sorter, SorterCollection } from "./Sorted";
 
-export class CharactersCollection implements SorterCollection {
+export class CharactersCollection extends Sorter {
   data: string[];
 
   constructor(data: string) {
+    super();
     this.data = data.split("");
   }
 

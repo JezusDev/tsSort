@@ -1,26 +1,21 @@
-import { NumbersCollection } from "./NumbersCollection";
-
 export interface SorterCollection {
-  data: string[] | number[] | string;
   length: number;
   swap(currentIndex: number, nextIndex: number): void;
   compare(currentIndex: number, nextIndex: number): boolean;
 }
 
-export class Sorter {
-  collection: SorterCollection;
-
-  constructor(arr: SorterCollection) {
-    this.collection = arr;
-  }
+export abstract class Sorter {
+  abstract compare(a: number, b: number): boolean;
+  abstract swap(a: number, b: number): void;
+  abstract length: number;
 
   sort(): void {
-    const length = this.collection.length;
+    const { length } = this;
 
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1);
         }
       }
     }
